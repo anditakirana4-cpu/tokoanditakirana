@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MieAyamEndyul</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f8f2;
+    color:#17351f;
+}
+
+/* NAVBAR */
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:17px 7%;
+    background:#ffffff;
+    border-bottom:1px solid #dce8dc;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+    color:#164b2b;
+}
+
+.logo span{
+    color:#72a84b;
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.nav a{
+    text-decoration:none;
+    color:#355b40;
+    font-weight:bold;
+}
+
+.cart-btn{
+    border:none;
+    background:#24733d;
+    color:white;
+    padding:11px 17px;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.cart-btn:hover{
+    background:#18572d;
+}
+
+/* HERO */
+.hero{
+    min-height:620px;
+    padding:70px 7%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:50px;
+    background:
+    radial-gradient(circle at top right,#a9c98c 0,transparent 32%),
+    #e8f0e2;
+}
+
+.hero-small{
+    color:#43834e;
+    letter-spacing:3px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.hero h1{
+    font-family:Georgia,serif;
+    font-size:clamp(45px,6vw,75px);
+    line-height:1;
+    color:#173d24;
+}
+
+.hero h1 span{
+    color:#5d963f;
+}
+
+.hero p{
+    margin-top:22px;
+    max-width:550px;
+    color:#55705b;
+    line-height:1.8;
+    font-size:17px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn-primary{
+    background:#24733d;
+    color:white;
+    text-decoration:none;
+    padding:14px 24px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.btn-secondary{
+    border:2px solid #24733d;
+    color:#24733d;
+    text-decoration:none;
+    padding:12px 23px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.hero-image img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    border-radius:18px;
+    box-shadow:18px 18px 0 #76a95a;
+}
+
+/* SECTION */
+.section{
+    padding:80px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.section-title small{
+    color:#4d914c;
+    font-weight:bold;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    margin-top:8px;
+    font-family:Georgia,serif;
+    font-size:42px;
+    color:#183e25;
+}
+
+/* MENU */
+.menu{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.product{
+    background:white;
+    border:1px solid #dce8dc;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.product:hover{
+    transform:translateY(-7px);
+    box-shadow:0 15px 35px rgba(30,90,45,.13);
+}
+
+.product-image{
+    height:250px;
+    position:relative;
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.product:hover img{
+    transform:scale(1.05);
+}
+
+.badge{
+    position:absolute;
+    top:14px;
+    left:14px;
+    background:#f5f9f1;
+    color:#26703b;
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.product-content{
+    padding:22px;
+}
+
+.product-content h3{
+    font-family:Georgia,serif;
+    font-size:23px;
+    color:#183e25;
+}
+
+.product-content p{
+    margin-top:9px;
+    color:#68806c;
+    line-height:1.6;
+    font-size:14px;
+}
+
+.price{
+    margin:17px 0;
+    color:#27723c;
+    font-size:21px;
+    font-weight:bold;
+}
+
+.add-btn{
+    width:100%;
+    padding:13px;
+    border:none;
+    border-radius:8px;
+    background:#24733d;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.add-btn:hover{
+    background:#18572d;
+}
+
+/* PROMO */
+.promo{
+    margin:0 7% 70px;
+    padding:35px 40px;
+    background:#19552e;
+    color:white;
+    border-radius:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.promo h2{
+    font-family:Georgia,serif;
+    font-size:30px;
+}
+
+.promo p{
+    margin-top:8px;
+    color:#cfe2d2;
+}
+
+.promo-price{
+    font-size:32px;
+    font-weight:bold;
+    color:#b7d98d;
+}
+
+/* ABOUT */
+.about{
+    background:#e8f0e2;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.about-box{
+    background:white;
+    padding:30px;
+    border-radius:13px;
+    border:1px solid #d5e4d5;
+}
+
+.icon{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.about-box h3{
+    margin-bottom:10px;
+    color:#19492a;
+}
+
+.about-box p{
+    color:#617765;
+    line-height:1.7;
+}
+
+/* FOOTER */
+footer{
+    background:#12351f;
+    color:white;
+    text-align:center;
+    padding:40px 7%;
+}
+
+footer h2{
+    font-family:Georgia,serif;
+}
+
+footer p{
+    margin-top:8px;
+    color:#bcd0c0;
+}
+
+/* CART */
+.cart{
+    position:fixed;
+    right:-450px;
+    top:0;
+    width:min(430px,95%);
+    height:100vh;
+    background:white;
+    z-index:2000;
+    padding:25px;
+    box-shadow:-10px 0 30px #0003;
+    transition:.35s;
+    overflow-y:auto;
+}
+
+.cart.active{
+    right:0;
+}
+
+.cart-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-bottom:18px;
+    border-bottom:1px solid #dce8dc;
+}
+
+.cart-header h2{
+    font-family:Georgia,serif;
+}
+
+.close{
+    width:35px;
+    height:35px;
+    border:none;
+    border-radius:50%;
+    background:#e8f0e2;
+    cursor:pointer;
+    font-size:18px;
+}
+
+.cart-item{
+    padding:18px 0;
+    border-bottom:1px solid #eee;
+}
+
+.cart-item h4{
+    color:#1d4b2b;
+    margin-bottom:5px;
+}
+
+.cart-item p{
+    color:#27723c;
+}
+
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:10px;
+}
+
+.quantity button{
+    width:30px;
+    height:30px;
+    border:none;
+    border-radius:5px;
+    background:#dcebd7;
+    color:#1c5c31;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.quantity .delete{
+    margin-left:auto;
+    background:#f1d8d8;
+    color:#a22d2d;
+}
+
+.total{
+    margin-top:25px;
+    padding:20px;
+    background:#eef5e9;
+    border-radius:10px;
+}
+
+.total h2{
+    color:#23703a;
+    margin-top:5px;
+}
+
+.checkout{
+    width:100%;
+    margin-top:15px;
+    padding:15px;
+    border:none;
+    border-radius:8px;
+    background:#16803c;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.checkout:hover{
+    background:#11662f;
+}
+
+/* RESPONSIVE */
+@media(max-width:850px){
+
+    .nav a{
+        display:none;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .menu{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .promo{
+        flex-direction:column;
+        text-align:center;
+        gap:20px;
+    }
+}
+
+@media(max-width:550px){
+
+    .navbar{
+        padding:15px 5%;
+    }
+
+    .hero,
+    .section{
+        padding-left:5%;
+        padding-right:5%;
+    }
+
+    .hero-image img{
+        height:300px;
+    }
+
+    .menu{
+        grid-template-columns:1fr;
+    }
+
+    .promo{
+        margin-left:5%;
+        margin-right:5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+    <div class="logo">
+        MieAyam<span>Endyul
+        Andita Kirana</span>
+    </div>
+
+    <div class="nav">
+
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">Tentang</a>
+
+        <button class="cart-btn" onclick="openCart()">
+            🛒 Keranjang
+            (<span id="cartCount">0</span>)
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div>
+
+        <div class="hero-small">
+            MIE AYAM FAVORIT
+        </div>
+
+        <h1>
+            MieAyam<br>
+            <span>Endyul!</span>
+        </h1>
+
+        <p>
+            Mie ayam dengan mie kenyal,
+            topping ayam gurih, dan kuah
+            lezat. Pilih varian favoritmu
+            dan pesan dengan mudah melalui
+            WhatsApp.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#menu" class="btn-primary">
+                Lihat Menu
+            </a>
+
+            <a href="#about" class="btn-secondary">
+                Tentang Kami
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-image">
+
+        <img
+        src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1000&q=85"
+        alt="Mie Ayam">
+
+    </div>
+
+</section>
+
+
+<!-- MENU -->
+<section class="section" id="menu">
+
+    <div class="section-title">
+
+        <small>MENU MIE AYAM</small>
+
+        <h2>Pilih Favoritmu</h2>
+
+    </div>
+
+
+    <div class="menu">
+
+
+        <!-- ORIGINAL -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=85"
+                alt="Mie Ayam Original">
+
+                <span class="badge">
+                    BEST SELLER
+                </span>
+
+            </div>
+
+            <div class="product-content">
+
+                <h3>Mie Ayam Original</h3>
+
+                <p>
+                    Mie kenyal dengan topping
+                    ayam gurih dan sayuran.
+                </p>
+
+                <div class="price">
+                    Rp12.000
+                </div>
+
+                <button
+                class="add-btn"
+                onclick="addToCart('Mie Ayam Original',12000)">
+
+                    + Tambah ke Keranjang
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- PENTOL -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=800&q=85"
+                alt="Mie Ayam Pentol">
+
+                <span class="badge">
+                    FAVORIT
+                </span>
+
+            </div>
+
+            <div class="product-content">
+
+                <h3>Mie Ayam Pentol</h3>
+
+                <p>
+                    Mie ayam lengkap dengan
+                    tambahan pentol yang kenyal.
+                </p>
+
+                <div class="price">
+                    Rp15.000
+                </div>
+
+                <button
+                class="add-btn"
+                onclick="addToCart('Mie Ayam Pentol',15000)">
+
+                    + Tambah ke Keranjang
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SPESIAL -->
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                src="https://images.unsplash.com/photo-1557872943-16a5ac26437e?auto=format&fit=crop&w=800&q=85"
+                alt="Mie Ayam Spesial">
+
+                <span class="badge">
+                    SPECIAL
+                </span>
+
+            </div>
+
+            <div class="product-content">
+
+                <h3>Mie Ayam Spesial</h3>
+
+                <p>
+                    Porsi spesial dengan mie,
+                    ayam, pentol, dan topping
+                    tambahan.
+                </p>
+
+                <div class="price">
+                    Rp18.000
+                </div>
+
+                <button
+                class="add-btn"
+                onclick="addToCart('Mie Ayam Spesial',18000)">
+
+                    + Tambah ke Keranjang
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROMO -->
+<div class="promo">
+
+    <div>
+
+        <h2>
+            Mie Ayam Bikin Endyul!
+        </h2>
+
+        <p>
+            Pilih varian favoritmu dan pesan sekarang.
+        </p>
+
+    </div>
+
+    <div class="promo-price">
+        Rp12K+
+    </div>
+
+</div>
+
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+
+    <div class="section-title">
+
+        <small>MIEAYAMENDYUL</small>
+
+        <h2>Kenapa Pilih Kami?</h2>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-box">
+
+            <div class="icon">
+                🍜
+            </div>
+
+            <h3>Mie Kenyal</h3>
+
+            <p>
+                Mie dengan tekstur kenyal
+                yang cocok dipadukan dengan
+                topping ayam.
+            </p>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <div class="icon">
+                🍗
+            </div>
+
+            <h3>Topping Melimpah</h3>
+
+            <p>
+                Tersedia pilihan topping
+                ayam, pentol, dan kombinasi
+                spesial.
+            </p>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <div class="icon">
+                📱
+            </div>
+
+            <h3>Pesan Mudah</h3>
+
+            <p>
+                Pilih menu, masukkan ke
+                keranjang, kemudian checkout
+                melalui WhatsApp.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <h2>MieAyamEndyul</h2>
+
+    <p>
+        Mie ayam lezat untuk menemani harimu.
+    </p>
+
+    <p>
+        © 2026 MieAyamEndyul
+    </p>
+
+</footer>
+
+
+<!-- CART -->
+<div class="cart" id="cart">
+
+    <div class="cart-header">
+
+        <h2>🛒 Keranjang</h2>
+
+        <button
+        class="close"
+        onclick="closeCart()">
+
+            ✕
+
+        </button>
+
+    </div>
+
+
+    <div id="cartItems">
+
+        <p style="margin-top:20px;">
+            Keranjang masih kosong.
+        </p>
+
+    </div>
+
+
+    <div class="total">
+
+        <p>Total Pesanan</p>
+
+        <h2 id="total">
+            Rp0
+        </h2>
+
+    </div>
+
+
+    <button
+    class="checkout"
+    onclick="checkout()">
+
+        💬 Checkout via WhatsApp
+
+    </button>
+
+</div>
+
+
+<script>
+
+let cart = [];
+
+
+/* TAMBAH KE CART */
+
+function addToCart(name,price){
+
+    let existing =
+        cart.find(item => item.name === name);
+
+    if(existing){
+
+        existing.qty++;
+
+    }else{
+
+        cart.push({
+            name:name,
+            price:price,
+            qty:1
+        });
+
+    }
+
+    updateCart();
+    openCart();
+}
+
+
+/* UPDATE CART */
+
+function updateCart(){
+
+    const cartItems =
+        document.getElementById("cartItems");
+
+    const totalElement =
+        document.getElementById("total");
+
+    const cartCount =
+        document.getElementById("cartCount");
+
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+    let count = 0;
+
+
+    if(cart.length === 0){
+
+        cartItems.innerHTML = `
+            <p style="margin-top:20px;">
+                Keranjang masih kosong.
+            </p>
+        `;
+
+    }
+
+
+    cart.forEach((item,index)=>{
+
+        let subtotal =
+            item.price * item.qty;
+
+        total += subtotal;
+        count += item.qty;
+
+
+        cartItems.innerHTML += `
+
+        <div class="cart-item">
+
+            <h4>${item.name}</h4>
+
+            <p>
+                Rp${formatRupiah(item.price)}
+            </p>
+
+            <div class="quantity">
+
+                <button
+                onclick="decrease(${index})">
+                    −
+                </button>
+
+                <b>
+                    ${item.qty}
+                </b>
+
+                <button
+                onclick="increase(${index})">
+                    +
+                </button>
+
+                <button
+                class="delete"
+                onclick="removeItem(${index})">
+                    🗑
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+
+    totalElement.innerText =
+        "Rp" + formatRupiah(total);
+
+    cartCount.innerText =
+        count;
+}
+
+
+/* TAMBAH JUMLAH */
+
+function increase(index){
+
+    cart[index].qty++;
+
+    updateCart();
+}
+
+
+/* KURANG JUMLAH */
+
+function decrease(index){
+
+    if(cart[index].qty > 1){
+
+        cart[index].qty--;
+
+    }else{
+
+        cart.splice(index,1);
+
+    }
+
+    updateCart();
+}
+
+
+/* HAPUS */
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    updateCart();
+}
+
+
+/* FORMAT RUPIAH */
+
+function formatRupiah(number){
+
+    return number.toLocaleString("id-ID");
+
+}
+
+
+/* OPEN CART */
+
+function openCart(){
+
+    document
+    .getElementById("cart")
+    .classList
+    .add("active");
+
+}
+
+
+/* CLOSE CART */
+
+function closeCart(){
+
+    document
+    .getElementById("cart")
+    .classList
+    .remove("active");
+
+}
+
+
+/* CHECKOUT WHATSAPP */
+
+function checkout(){
+
+    if(cart.length === 0){
+
+        alert(
+            "Keranjang masih kosong. Silakan pilih menu terlebih dahulu!"
+        );
+
+        return;
+    }
+
+
+    /*
+    ===================================
+    GANTI NOMOR WHATSAPP DI SINI
+    ===================================
+
+    Contoh nomor:
+    081234567890
+
+    Menjadi:
+    6281234567890
+
+    Jangan menggunakan +62
+    */
+
+
+    const phone =
+        "6283866291788";
+
+
+    let message =
+        "Halo MieAyamEndyul! 👋\n\n" +
+        "Saya ingin memesan:\n\n";
+
+
+    let total = 0;
+
+
+    cart.forEach(item=>{
+
+        let subtotal =
+            item.price * item.qty;
+
+        total += subtotal;
+
+
+        message +=
+            "🍜 " +
+            item.name +
+            " x" +
+            item.qty +
+            " = Rp" +
+            formatRupiah(subtotal) +
+            "\n";
+
+    });
+
+
+    message +=
+        "\n💰 Total: Rp" +
+        formatRupiah(total);
+
+
+    message +=
+        "\n\nMohon konfirmasi pesanan saya. Terima kasih!";
+
+
+    const whatsappURL =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+}
+
+
+/* JALANKAN CART */
+
+updateCart();
+
+</script>
+
+</body>
+  </html>
